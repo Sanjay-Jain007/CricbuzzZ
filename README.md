@@ -1,6 +1,4 @@
-You’re right — that line shouldn’t be there. Here’s the **pure README only, nothing extra**:
 
----
 
 # 🏏 Cricbuzz Clone – Live Cricket Score Web App
 
