@@ -29,11 +29,17 @@ Version Control: Git, GitHub
 ## 📂 Project Structure
 
 cricbuzz-clone/
-│── index.html
-│── style.css
-│── script.js
-│── assets/
-│── README.md
+│── HOME.py
+│── pages/
+│── cricbuzz.db
+│── fetch_player_stats.py
+│── fetch_recent_stats.py
+│── import_players.py
+│── import_stats.py
+│── load_kaggle_data.py
+│── update_database.py
+│── players.csv
+│── icc_team_rankings.csv
 
 ## ⚙️ Installation & Setup
 
