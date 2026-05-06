@@ -8,7 +8,7 @@ category = st.selectbox(
     ["International", "League", "Domestic", "Women"]
 )
 
-url = "https://cricbuzz-cricket.p.rapidapi.com/matches/v1/live"
+url = "https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent"
 
 headers = {
     "X-RapidAPI-Key": st.secrets["RAPIDAPI_KEY"],
