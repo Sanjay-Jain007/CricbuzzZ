@@ -17,9 +17,9 @@ headers = {
 
 response = requests.get(url, headers=headers)
 
-# =========================
+# =====================================
 # HANDLE API RESPONSE
-# =========================
+# =====================================
 
 if response.status_code == 200:
 
@@ -62,19 +62,24 @@ if response.status_code == 200:
                         venue = info.get("venueInfo", {}).get("ground", "")
                         city = info.get("venueInfo", {}).get("city", "")
 
+                        # =====================================
+                        # MATCH INFO
+                        # =====================================
+
                         st.subheader(f"{team1} vs {team2}")
 
                         st.write(f"🏟️ {venue}, {city}")
                         st.write(f"📌 {match_desc}")
 
-                        # =========================
+                        # =====================================
                         # SCORE DISPLAY
-                        # =========================
+                        # =====================================
 
                         team1_score = "N/A"
                         team2_score = "N/A"
 
                         if "team1Score" in score and "inngs1" in score["team1Score"]:
+
                             inngs = score["team1Score"]["inngs1"]
 
                             runs = inngs.get("runs", 0)
@@ -84,6 +89,7 @@ if response.status_code == 200:
                             team1_score = f"{runs}/{wkts} ({overs})"
 
                         if "team2Score" in score and "inngs1" in score["team2Score"]:
+
                             inngs = score["team2Score"]["inngs1"]
 
                             runs = inngs.get("runs", 0)
@@ -97,9 +103,9 @@ if response.status_code == 200:
 
                         st.success(status)
 
-                        # =========================
+                        # =====================================
                         # SCORECARD BUTTON
-                        # =========================
+                        # =====================================
 
                         if st.button(f"View Scorecard {match_id}"):
 
@@ -113,7 +119,7 @@ if response.status_code == 200:
 
                                 st.subheader("📋 Scorecard")
 
-                                if "scoreCard" in score_data:
+                                if score_data.get("scoreCard"):
 
                                     for inning in score_data["scoreCard"]:
 
@@ -136,7 +142,7 @@ if response.status_code == 200:
                                             )
 
                                 else:
-                                    st.warning("Scorecard not available")
+                                    st.info("Detailed scorecard unavailable for this match.")
 
                             else:
                                 st.error("Could not fetch scorecard")
