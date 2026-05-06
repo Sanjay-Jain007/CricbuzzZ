@@ -11,8 +11,18 @@ headers = {
 }
 
 response = requests.get(url, headers=headers)
-st.write(response.status_code)
-st.write(response.text)
+
+if response.status_code == 200:
+    data = response.json()
+
+    # show matches here
+
+elif response.status_code == 204:
+    st.warning("No live matches available right now.")
+
+else:
+    st.error(f"API Error: {response.status_code}")
+    st.write(response.text)
 
 if response.status_code == 200:
 
