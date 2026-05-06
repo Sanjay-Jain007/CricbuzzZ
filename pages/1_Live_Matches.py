@@ -11,6 +11,8 @@ headers = {
 }
 
 response = requests.get(url, headers=headers)
+st.write(response.status_code)
+st.write(response.text)
 
 if response.status_code == 200:
 
