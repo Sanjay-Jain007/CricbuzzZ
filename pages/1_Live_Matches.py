@@ -70,5 +70,4 @@ if response.status_code == 200:
 
                     st.markdown("---")
 
-else:
-    st.error("Failed to fetch live match data")
+
